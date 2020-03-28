@@ -2,6 +2,7 @@
 
 namespace Collex\Domain\Users\Models;
 
+use Collex\Infrastructure\Traits\UsesUuid;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -10,6 +11,7 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
+    use UsesUuid;
 
     /**
      * The attributes that are mass assignable.
@@ -17,7 +19,13 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'seller_fee_id',
+        'username',
+        'first_name',
+        'last_name',
+        'email',
+        'dob',
+        'password',
     ];
 
     /**
@@ -26,7 +34,8 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'dob'
     ];
 
     /**
@@ -36,6 +45,7 @@ class User extends Authenticatable implements JWTSubject
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'date' => 'date'
     ];
 
     /**
