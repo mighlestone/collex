@@ -4,6 +4,7 @@ namespace Collex\Domain\Users\Models;
 
 use Collex\Infrastructure\Traits\UsesUuid;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Address extends Model
 {
@@ -23,4 +24,12 @@ class Address extends Model
         'country',
         'zip_post_code',
     ];
+
+    /**
+     * @return BelongsToMany
+     */
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'users_addresses', 'user_id', 'address_id');
+    }
 }
