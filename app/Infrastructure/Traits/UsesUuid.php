@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 trait UsesUuid
 {
     /**
-     *
+     * Generate uuid when creating model.
      */
     protected static function boot()
     {
@@ -20,12 +20,18 @@ trait UsesUuid
         });
     }
 
-    public function getIncrementing()
+    /**
+     * @return bool
+     */
+    public function getIncrementing(): bool
     {
         return false;
     }
 
-    public function getKeyType()
+    /**
+     * @return string
+     */
+    public function getKeyType(): string
     {
         return 'string';
     }

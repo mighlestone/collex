@@ -173,6 +173,7 @@ return [
         /*
          * Domain Service Providers...
          */
+        Collex\Domain\Users\Providers\DomainServiceProvider::class
 
     ],
 

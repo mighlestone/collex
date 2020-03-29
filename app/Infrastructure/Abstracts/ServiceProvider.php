@@ -10,9 +10,14 @@ use ReflectionException;
 abstract class ServiceProvider extends LaravelServiceProvider
 {
     /**
-     * @var string Alias for load tranlations and views
+     * @var string Alias for load translations and views
      */
     protected $alias;
+
+    /**
+     * @var string Name of the domain the service provider sits within
+     */
+    protected $domain;
 
     /**
      * @var bool Set if will load commands
@@ -112,22 +117,18 @@ abstract class ServiceProvider extends LaravelServiceProvider
      */
     protected function registerFactories()
     {
-        if ($this->hasFactories === true) {
-            collect($this->factories)->each(function ($factoryName) {
-                (new $factoryName())->define();
-            });
+        if ($this->hasFactories === true && empty($this->domain) !== true) {
+            $this->loadFactoriesFrom(database_path('factories/' . $this->domain));
         }
     }
 
     /**
      * Register domain migrations.
-     *
-     * @throws ReflectionException
      */
     protected function registerMigrations()
     {
-        if ($this->hasMigrations === true) {
-            $this->loadMigrationsFrom($this->domainPath('Database/Migrations'));
+        if ($this->hasMigrations === true && empty($this->domain) !== true) {
+            $this->loadMigrationsFrom(database_path('migrations/' . $this->domain));
         }
     }
 

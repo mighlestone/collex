@@ -1,7 +1,5 @@
 <?php
 
-namespace Collex\Domain\Users\Database\Migrations;
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -20,8 +18,10 @@ class CreateUsersAddressesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
 
             $table->uuid('addresses_id')->index();
-            $table->foreign('addresses')->references('id')->on('addresses');
+            $table->foreign('addresses_id')->references('id')->on('addresses');
 
+            $table->boolean('is_billing')->nullable();
+            $table->boolean('is_shipping')->nullable();
             $table->timestamp('created_at')->nullable();;
         });
     }

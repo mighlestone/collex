@@ -1,7 +1,5 @@
 <?php
 
-namespace Collex\Domain\Users\Database\Factories;
-
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
 use Collex\Domain\Users\Models\User;
