@@ -9,6 +9,23 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Fee extends Model
 {
     /**
+     * @param int $value
+     * @return float
+     */
+    public function getPercentageAttribute(int $value): float
+    {
+        return $value / 100;
+    }
+
+    /**
+     * @param float $value
+     */
+    public function setPercentageAttribute(float $value): void
+    {
+        $this->attributes['percentage'] = $value * 100;
+    }
+
+    /**
      * @return BelongsTo
      */
     public function type(): BelongsTo
