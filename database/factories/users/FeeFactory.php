@@ -21,6 +21,6 @@ $factory->define(Fee::class, function (Faker $faker) {
     return [
         'fee_type_id' => factory(FeeType::class),
         'name' => $faker->name,
-        'percentage' => $faker->randomFloat(2, 1, 10)
+        'percentage' => $faker->randomNumber(4)
     ];
 });
