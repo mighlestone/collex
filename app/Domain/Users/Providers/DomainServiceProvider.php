@@ -7,5 +7,6 @@ use Collex\Infrastructure\Abstracts\ServiceProvider;
 class DomainServiceProvider extends ServiceProvider
 {
     protected $domain = 'users';
+    protected $hasFactories = true;
     protected $hasMigrations = true;
 }

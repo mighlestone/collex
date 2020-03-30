@@ -50,11 +50,6 @@ abstract class ServiceProvider extends LaravelServiceProvider
     protected $commands = [];
 
     /**
-     * @var array List of model factories to load
-     */
-    protected $factories = [];
-
-    /**
      * @var array List of providers to load
      */
     protected $providers = [];

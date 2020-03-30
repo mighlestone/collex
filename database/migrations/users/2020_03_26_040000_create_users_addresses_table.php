@@ -17,8 +17,8 @@ class CreateUsersAddressesTable extends Migration
             $table->uuid('user_id')->index();
             $table->foreign('user_id')->references('id')->on('users');
 
-            $table->uuid('addresses_id')->index();
-            $table->foreign('addresses_id')->references('id')->on('addresses');
+            $table->uuid('address_id')->index();
+            $table->foreign('address_id')->references('id')->on('addresses');
 
             $table->boolean('is_billing')->nullable();
             $table->boolean('is_shipping')->nullable();

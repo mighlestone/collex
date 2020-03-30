@@ -1,5 +1,7 @@
 <?php
 
+use Collex\Domain\Users\Database\Seeds\FeeSeeder;
+use Collex\Domain\Users\Database\Seeds\FeeTypeSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -11,6 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        $this->call(FeeTypeSeeder::class);
+        $this->call(FeeSeeder::class);
     }
 }
