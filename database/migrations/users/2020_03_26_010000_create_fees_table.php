@@ -17,7 +17,7 @@ class CreateFeesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('fee_type_id');
             $table->string('name');
-            $table->float('percentage', 2, 2);
+            $table->smallInteger('percentage');
             $table->timestamps();
 
             $table->foreign('fee_type_id')

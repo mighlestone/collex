@@ -3,7 +3,7 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
 use Collex\Domain\Users\Models\Fee;
-use Collex\Domain\Users\Models\User;
+use Collex\Domain\Users\Models\FeeType;
 use Faker\Generator as Faker;
 
 /*
@@ -17,15 +17,10 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(User::class, function (Faker $faker) {
+$factory->define(Fee::class, function (Faker $faker) {
     return [
-        'seller_fee_id' => factory(Fee::class),
-        'username' => $faker->userName,
-        'first_name' => $faker->firstName,
-        'last_name' => $faker->lastName,
-        'email' => $faker->unique()->safeEmail,
-        'dob' => now()->subDecade(),
-        'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+        'fee_type_id' => factory(FeeType::class),
+        'name' => $faker->name,
+        'percentage' => $faker->randomFloat(2, 1, 10)
     ];
 });
