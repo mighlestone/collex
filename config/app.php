@@ -173,7 +173,8 @@ return [
         /*
          * Domain Service Providers...
          */
-        Collex\Domain\Users\Providers\DomainServiceProvider::class
+        Collex\Domain\Users\Providers\DomainServiceProvider::class,
+        Collex\Domain\Cards\Providers\DomainServiceProvider::class,
 
     ],
 
