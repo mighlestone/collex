@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersAddressesTable extends Migration
+class CreateFollowsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,25 @@ class CreateUsersAddressesTable extends Migration
      */
     public function up()
     {
-        Schema::create('users_addresses', function (Blueprint $table) {
+        Schema::create('follows', function (Blueprint $table) {
+            $table->bigIncrements('id');
+
             $table->uuid('user_id')->index();
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users');
 
-            $table->uuid('address_id')->index();
-            $table->foreign('address_id')
+            $table->uuid('card_id')->index();
+            $table->foreign('card_id')
                 ->references('id')
-                ->on('addresses');
+                ->on('cards');
 
-            $table->boolean('is_billing')->nullable();
-            $table->boolean('is_shipping')->nullable();
-            $table->timestamp('created_at')->nullable();;
+            $table->unsignedBigInteger('card_condition_id')->index();
+            $table->foreign('card_condition_id')
+                ->references('id')
+                ->on('card_conditions');
+
+            $table->timestamps();
         });
     }
 
@@ -37,6 +42,6 @@ class CreateUsersAddressesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users_addresses');
+        Schema::dropIfExists('follows');
     }
 }
