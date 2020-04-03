@@ -176,6 +176,7 @@ return [
         Collex\Domain\Users\Providers\DomainServiceProvider::class,
         Collex\Domain\Cards\Providers\DomainServiceProvider::class,
         Collex\Domain\UserFunctions\Providers\DomainServiceProvider::class,
+        Collex\Domain\Deals\Providers\DomainServiceProvider::class,
 
     ],
 
