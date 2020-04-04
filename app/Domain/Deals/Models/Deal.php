@@ -3,6 +3,7 @@
 namespace Collex\Domain\Deals\Models;
 
 use Collex\Domain\Cards\Models\Card;
+use Collex\Domain\Payments\Models\Payment;
 use Collex\Domain\UserFunctions\Models\CardCondition;
 use Collex\Domain\Users\Models\Address;
 use Collex\Domain\Users\Models\Fee;
@@ -11,6 +12,7 @@ use Collex\Infrastructure\Traits\UsesUuid;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Deal extends Model
 {
@@ -95,5 +97,13 @@ class Deal extends Model
     public function dealType(): BelongsTo
     {
         return $this->belongsTo(DealType::class, 'deal_type_id', 'id');
+    }
+
+    /**
+     * @return HasOne
+     */
+    public function payment(): HasOne
+    {
+        return $this->hasOne(Payment::class, 'deal_id', 'id');
     }
 }
