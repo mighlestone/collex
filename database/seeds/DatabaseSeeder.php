@@ -4,6 +4,7 @@ use Collex\Domain\Cards\Database\Seeds\CategorySeeder;
 use Collex\Domain\Cards\Database\Seeds\ManufacturerSeeder;
 use Collex\Domain\Cards\Database\Seeds\SubCategorySeeder;
 use Collex\Domain\Cards\Database\Seeds\TagSeeder;
+use Collex\Domain\Deals\Database\Seeds\DealTypeSeeder;
 use Collex\Domain\UserFunctions\Database\Seeds\CardConditionSeeder;
 use Collex\Domain\Users\Database\Seeds\FeeSeeder;
 use Collex\Domain\Users\Database\Seeds\FeeTypeSeeder;
@@ -30,5 +31,8 @@ class DatabaseSeeder extends Seeder
 
         // user functions
         $this->call(CardConditionSeeder::class);
+
+        // deals
+        $this->call(DealTypeSeeder::class);
     }
 }
