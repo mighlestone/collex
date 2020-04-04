@@ -2,6 +2,7 @@
 
 namespace Collex\Domain\Users\Models;
 
+use Collex\Domain\Payments\Models\Payment;
 use Collex\Domain\UserFunctions\Models\Ask;
 use Collex\Domain\UserFunctions\Models\Bid;
 use Collex\Domain\UserFunctions\Models\Follow;
@@ -117,5 +118,13 @@ class User extends Authenticatable implements JWTSubject
     public function bids(): HasMany
     {
         return $this->hasMany(Bid::class);
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function payments(): HasMany
+    {
+        return $this->hasMany(Payment::class, 'user_id', 'id');
     }
 }
