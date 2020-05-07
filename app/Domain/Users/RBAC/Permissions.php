@@ -72,13 +72,13 @@ class Permissions
     protected static function alternativePermissions(string $permission): array
     {
         $alternativePermissions = ['*', $permission];
-        $permParts = explode('.', $permission);
-        $count = count($permParts);
+        $permissionParts = explode('.', $permission);
+        $count = count($permissionParts);
 
-        if ($permParts && $count > 1) {
+        if ($permissionParts && $count > 1) {
             $currentPermission = '';
             for ($i = 0; $i < ($count - 1); $i++) {
-                $currentPermission .= $permParts[$i] . '.';
+                $currentPermission .= $permissionParts[$i] . '.';
                 $alternativePermissions[] = $currentPermission . '*';
             }
         }
