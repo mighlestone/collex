@@ -11,6 +11,7 @@ class DomainServiceProvider extends ServiceProvider
     protected $hasMigrations = true;
 
     protected $providers = [
+        RouteServiceProvider::class,
         PermissionsServiceProvider::class
     ];
 }
