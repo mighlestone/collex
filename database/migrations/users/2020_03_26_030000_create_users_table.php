@@ -15,7 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->unsignedBigInteger('seller_fee_id');
+            $table->unsignedBigInteger('seller_fee_id')->default(2);
             $table->string('username');
             $table->string('first_name');
             $table->string('last_name');
