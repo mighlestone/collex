@@ -28,6 +28,12 @@ class RouteServiceProvider extends ServiceProvider
             ->group(function (Router $router) {
                 $router->post('register', 'RegistrationController')
                     ->name('register');
+
+                $router->post('authenticate', 'AuthenticationController')
+                    ->name('authenticate');
+
+                $router->delete('revoke', 'RevokeController')
+                    ->name('revoke');
             });
     }
 }
