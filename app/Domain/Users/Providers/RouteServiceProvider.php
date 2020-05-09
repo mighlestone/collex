@@ -34,6 +34,9 @@ class RouteServiceProvider extends ServiceProvider
 
                 $router->delete('revoke', 'RevokeController')
                     ->name('revoke');
+
+                $router->post('refresh', 'RefreshController')
+                    ->name('refresh');
             });
     }
 }
