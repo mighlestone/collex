@@ -38,6 +38,7 @@ class RegistrationRequest extends FormRequest
                 'string',
                 'min:8',
                 'max:50',
+                'unique:users,username',
             ],
             'first_name' => [
                 'required',
@@ -63,6 +64,7 @@ class RegistrationRequest extends FormRequest
                 'required',
                 'string',
                 'min:10',
+                'max:255',
                 'different:email',
                 'confirmed'
             ]
