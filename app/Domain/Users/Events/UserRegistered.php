@@ -3,9 +3,12 @@
 namespace Collex\Domain\Users\Events;
 
 use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Queue\SerializesModels;
 
 class UserRegistered
 {
+    use SerializesModels;
+
     /**
      * @var Authenticatable
      */
