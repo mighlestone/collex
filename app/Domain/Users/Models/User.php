@@ -82,7 +82,7 @@ class User extends Authenticatable implements JWTSubject
     /**
      * @return BelongsTo
      */
-    public function fee(): BelongsTo
+    public function sellerFee(): BelongsTo
     {
         return $this->belongsTo(Fee::class, 'seller_fee_id', 'id');
     }

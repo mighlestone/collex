@@ -37,6 +37,9 @@ class RouteServiceProvider extends ServiceProvider
 
                 $router->post('refresh', 'RefreshController')
                     ->name('refresh');
+
+                $router->get('user', 'UserDetailsController')
+                    ->name('user');
             });
     }
 }
