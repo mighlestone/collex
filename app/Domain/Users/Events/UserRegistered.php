@@ -2,7 +2,7 @@
 
 namespace Collex\Domain\Users\Events;
 
-use Illuminate\Contracts\Auth\Authenticatable;
+use Collex\Domain\Users\Models\User;
 use Illuminate\Queue\SerializesModels;
 
 class UserRegistered
@@ -10,15 +10,15 @@ class UserRegistered
     use SerializesModels;
 
     /**
-     * @var Authenticatable
+     * @var User
      */
-    private $user;
+    public $user;
 
     /**
      * UserRegistered constructor.
-     * @param Authenticatable $user
+     * @param User $user
      */
-    public function __construct(Authenticatable $user)
+    public function __construct(User $user)
     {
         $this->user = $user;
     }
