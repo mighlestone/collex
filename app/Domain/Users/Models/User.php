@@ -8,7 +8,7 @@ use Collex\Domain\UserFunctions\Models\Bid;
 use Collex\Domain\UserFunctions\Models\Follow;
 use Collex\Domain\UserFunctions\Models\Portfolio;
 use Collex\Infrastructure\Traits\UsesUuid;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -16,10 +16,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable implements JWTSubject, MustVerifyEmail
+class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
     use UsesUuid;
+    use MustVerifyEmail;
 
     /**
      * The attributes that are mass assignable.
