@@ -40,6 +40,12 @@ class RouteServiceProvider extends ServiceProvider
 
                 $router->get('user', 'UserDetailsController')
                     ->name('user');
+
+                $router->get('verify/{id}/{hash}', 'VerificationController')
+                    ->name('verify');
+
+                $router->post('verify/resend', 'ResendVerificationController')
+                    ->name('verify.resend');
             });
     }
 }

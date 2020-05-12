@@ -2,12 +2,12 @@
 
 namespace Collex\Domain\Users\Listeners;
 
-use Collex\Domain\Users\Events\UserRegistered;
+use Collex\Domain\Users\Events\ResendVerification;
 use Collex\Domain\Users\Notifications\VerifyEmail;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Notification;
 
-class SendVerificationEmail implements ShouldQueue
+class ResendVerificationEmail implements ShouldQueue
 {
     /**
      * The time (seconds) before the job should be processed.
@@ -19,9 +19,9 @@ class SendVerificationEmail implements ShouldQueue
     /**
      * Handle the event.
      *
-     * @param UserRegistered $event
+     * @param ResendVerification $event
      */
-    public function handle(UserRegistered $event)
+    public function handle(ResendVerification $event)
     {
         if ($event->user->hasVerifiedEmail() === false) {
             Notification::send($event->user, new VerifyEmail($event->user));
