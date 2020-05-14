@@ -33,7 +33,6 @@ class AuthenticationRequest extends FormRequest
                 'required',
                 'email',
                 'max:255',
-                'unique:users,username',
             ],
             'password' => [
                 'required',
